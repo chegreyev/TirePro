@@ -9,13 +9,13 @@ class Producer(Model):
         return self.name
 
 class Tire(Model):
-    SEOSON = [("L", "Летние"),("W", "Зимние")]
+    SEOSON = [("Летние", "Summer"),("Зимние", "Winter")]
 
     width = FloatField(default=0)
     profile = FloatField(default=0)
     diameter = CharField(max_length=4, blank=True)
 
-    seoson = CharField(max_length=2, choices=SEOSON, default="L")
+    seoson = CharField(max_length=6, choices=SEOSON, default="L")
     producer = ForeignKey(Producer, on_delete=CASCADE)
 
     def __str__(self):
