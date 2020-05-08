@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, StringRelatedField
 from .models import *
 
 class ProducerSerializer(ModelSerializer):
@@ -8,7 +8,7 @@ class ProducerSerializer(ModelSerializer):
          fields = '__all__'
 
 class TireSerializer(ModelSerializer):
-
+    producer = StringRelatedField()
     class Meta:
         model = Tire
         fields = ['width' , 'profile' , 'diameter' , 'seoson' , 'producer' ]
