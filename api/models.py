@@ -1,7 +1,6 @@
-from django.db.models import Model, CharField, FloatField, ForeignKey, CASCADE
+from django.db.models import Model, CharField, FloatField, ForeignKey, IntegerField,CASCADE
 
 
-# Create your models here.
 class Producer(Model):
     name = CharField(max_length=125)
 
@@ -20,3 +19,13 @@ class Tire(Model):
 
     def __str__(self):
         return self.producer
+
+class Car(Model):
+    mark = CharField(max_length=150)
+    model = CharField(max_length=150)
+    year = IntegerField()
+    modification = CharField(max_length=100)
+    type_size = CharField(max_length=100)
+
+    def __str__(self):
+        return f'{self.mark}-{self.model}-{self.year}-{self.modification}-{self.type_size}'
