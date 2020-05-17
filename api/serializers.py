@@ -12,3 +12,14 @@ class TireSerializer(ModelSerializer):
     class Meta:
         model = Tire
         fields = ['width' , 'profile' , 'diameter' , 'seoson' , 'producer']
+
+class CarSerializer(ModelSerializer):
+    class Meta:
+        model = Car
+        fields = ['mark' , 'model', 'year', 'modification', 'type_size', 'tire']
+
+    def to_representation(self, instance):
+        representation = super(CarSerializer, self).to_representation(instance)
+        data = Tire.objects.get(id = representation['tire'])
+        representation['tire'] = TireSerializer(data).data
+        return representation

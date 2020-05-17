@@ -11,3 +11,7 @@ class ProducerViewSet(ModelViewSet):
 class TireViewSet(ModelViewSet):
     queryset = Tire.objects.all()
     serializer_class = TireSerializer
+
+class CarViewSet(ModelViewSet):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
