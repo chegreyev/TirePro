@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     #Rest
     'rest_framework',
 
+    # Extensions
+    'django_extensions',
+
     #MyApps
     'api',
 
