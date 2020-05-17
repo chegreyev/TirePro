@@ -13,10 +13,16 @@ class TireSerializer(ModelSerializer):
         model = Tire
         fields = ['width' , 'profile' , 'diameter' , 'seoson' , 'producer']
 
+class DiscSerializer(ModelSerializer):
+    producer = SlugRelatedField(queryset=Producer.objects.all(), slug_field='name')
+    class Meta:
+        model = Disc
+        fields = ['width', 'producer', 'fasteners_quantity', 'fasteners_distance', 'diameter']
+
 class CarSerializer(ModelSerializer):
     class Meta:
         model = Car
-        fields = ['mark' , 'model', 'year', 'modification', 'type_size', 'tire']
+        fields = ['mark' , 'model', 'year', 'modification', 'type_size', 'tire', 'disc']
 
     def to_representation(self, instance):
         representation = super(CarSerializer, self).to_representation(instance)

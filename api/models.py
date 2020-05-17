@@ -19,6 +19,15 @@ class Tire(Model):
 
     def __str__(self):
         return f'Название : {self.producer.name}\nШирина : {self.width}\nПрофиль : {self.profile}\nДиаметер : {self.diameter}\nСезон : {self.seoson}'
+class Disc(Model):
+    width = FloatField(default=0)
+    producer = ForeignKey(Producer, on_delete=CASCADE)
+    fasteners_quantity = IntegerField()
+    fasteners_distance = IntegerField()
+    diameter = FloatField()
+
+    def __str__(self):
+        return f'Название : {self.producer.name}\nШирина : {self.width}\nДиаметер : {self.diameter}'
 
 class Car(Model):
     mark = CharField(max_length=150)
@@ -28,6 +37,7 @@ class Car(Model):
     type_size = CharField(max_length=100)
     # TODO: check the relationship with tires
     tire = ForeignKey(Tire, on_delete=CASCADE)
+    disc = ForeignKey(Disc, on_delete=CASCADE)
 
     def __str__(self):
         return f'{self.mark}-{self.model}-{self.year}-{self.modification}-{self.type_size}'

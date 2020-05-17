@@ -15,3 +15,7 @@ class TireViewSet(ModelViewSet):
 class CarViewSet(ModelViewSet):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
+
+class DiscViewSet(ModelViewSet):
+    queryset = Disc.objects.all()
+    serializer_class = DiscSerializer
