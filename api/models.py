@@ -17,14 +17,18 @@ class Tire(Model):
     seoson = CharField(max_length=11, choices=SEOSON, default="Summer")
     producer = ForeignKey(Producer, on_delete=CASCADE)
 
+    price = IntegerField(default=0)
     def __str__(self):
         return f'Название : {self.producer.name}\nШирина : {self.width}\nПрофиль : {self.profile}\nДиаметер : {self.diameter}\nСезон : {self.seoson}'
+
 class Disc(Model):
     width = FloatField(default=0)
     producer = ForeignKey(Producer, on_delete=CASCADE)
     fasteners_quantity = IntegerField()
     fasteners_distance = IntegerField()
     diameter = FloatField()
+
+    price = IntegerField(default=0)
 
     def __str__(self):
         return f'Название : {self.producer.name}\nШирина : {self.width}\nДиаметер : {self.diameter}'
