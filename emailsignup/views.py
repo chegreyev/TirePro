@@ -9,4 +9,5 @@ def null_view(request):
 
 @api_view()
 def complete_view(request):
+    print(request)
     return Response("Email account is activated")
