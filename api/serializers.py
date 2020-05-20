@@ -11,7 +11,7 @@ class TireSerializer(ModelSerializer):
     producer = SlugRelatedField(queryset=Producer.objects.all(), slug_field='name')
     class Meta:
         model = Tire
-        fields = ['width' , 'profile' , 'diameter' , 'seoson' , 'producer', 'price']
+        fields = ['id', 'width' , 'profile' , 'diameter' , 'seoson' , 'producer', 'price', 'image']
 
 class DiscSerializer(ModelSerializer):
     producer = SlugRelatedField(queryset=Producer.objects.all(), slug_field='name')
