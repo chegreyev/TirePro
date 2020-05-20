@@ -1,4 +1,5 @@
-from django.db.models import Model, CharField, FloatField, ForeignKey, IntegerField,CASCADE
+from django.db.models import Model, CharField, FloatField, ForeignKey, IntegerField, ImageField, AutoField, CASCADE
+from django.contrib.auth.models import User;
 
 
 class Producer(Model):
@@ -10,6 +11,8 @@ class Producer(Model):
 class Tire(Model):
     SEOSON = [("Летние", "Summer"),("Зимние", "Winter"), ("Всесезонные", "Mixed")]
 
+    id = AutoField(primary_key=True)
+
     width = FloatField(default=0)
     profile = FloatField(default=0)
     diameter = CharField(max_length=20, blank=True)
@@ -18,6 +21,7 @@ class Tire(Model):
     producer = ForeignKey(Producer, on_delete=CASCADE)
 
     price = IntegerField(default=0)
+    image = ImageField(blank=True, null=True)
     def __str__(self):
         return f'Название : {self.producer.name}\nШирина : {self.width}\nПрофиль : {self.profile}\nДиаметер : {self.diameter}\nСезон : {self.seoson}'
 
