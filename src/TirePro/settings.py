@@ -26,7 +26,7 @@ SECRET_KEY = '8pk*cyc9a(s6t_2+rza1jz=28v4l&&8v%f)7)e*3&!d_t4r5hl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -100,8 +100,12 @@ WSGI_APPLICATION = 'TirePro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'EchoBravoRomeoField',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
