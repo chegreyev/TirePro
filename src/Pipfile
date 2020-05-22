@@ -18,6 +18,7 @@ oauthlib = "*"
 requests-oauthlib = "*"
 requests = "*"
 pillow = "==6.2.1"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
