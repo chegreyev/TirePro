@@ -14,10 +14,7 @@ services:
   web:
     container_name: tirepro_django
     build: .
-    command: >
-      bash -c  "python manage.py makemigrations &&
-                python manage.py migrate &&
-                python manage.py runserver 0.0.0.0:8000"
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./src:/src:rw
     ports:
