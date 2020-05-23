@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^password-reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.null_view, name='password_reset_confirm'),
     # Default urls
     url(r'', include('rest_auth.urls')),
-    url(r'^registration/', include('rest_auth.registration.urls'))
+    url(r'^registration/', include('rest_auth.registration.urls')),
+    url(r'^feedback/', views.FeedbackList.as_view(), name='feedback'),
 ]
