@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.shortcuts import redirect
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView, CreateAPIView
@@ -13,7 +14,11 @@ def null_view(request):
 
 @api_view()
 def complete_view(request):
-    return Response("Email account is activated")
+    return Response({
+        'resultCode': 0,
+        'messages': ['Email account is activated.'],
+        'data': ''
+    })
 
 class FeedbackList(CreateAPIView):
     queryset = get_user_model().objects.all()
