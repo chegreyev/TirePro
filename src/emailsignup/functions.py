@@ -8,7 +8,7 @@ User = get_user_model()
 load_dotenv()
 
 def email_client(request):
-    username = request.POST.get('username')
+    username = request.data.get('username')
     client = User.objects.get(username=username)
     # msg_html = render_to_string('templates/account/email/feedback.txt', {'client': client})
     template_email_text = ''
