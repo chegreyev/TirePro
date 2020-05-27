@@ -2,11 +2,12 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import redirect
 from rest_framework import status
 from rest_framework.decorators import api_view
-from rest_framework.generics import ListCreateAPIView, CreateAPIView
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 
 from .serializers import *
 from .functions import email_client
+from .permissions import IsLoggedIn
 
 @api_view()
 def null_view(request):
@@ -23,6 +24,7 @@ def complete_view(request):
 class FeedbackList(CreateAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
+    permission_classes = (IsLoggedIn, )
 
     def post(self, request, *args, **kwargs):
         email_client(request)
