@@ -16,6 +16,7 @@ services:
     build: .
     command: >
       bash -c  "./manage.py makemigrations &&
+                ./manage.py makemigrations api &&
                 ./manage.py migrate &&
                 ./manage.py runserver 0.0.0.0:8000"
     volumes:
