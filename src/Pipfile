@@ -17,7 +17,7 @@ django-rest-framework = "*"
 oauthlib = "*"
 requests-oauthlib = "*"
 requests = "*"
-pillow = "==6.2.1"
+pillow = "==8.2.0"
 python-dotenv = "*"
 
 [requires]
